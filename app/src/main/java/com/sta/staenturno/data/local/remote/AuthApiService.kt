@@ -1,7 +1,8 @@
 // data/remote/AuthApiService.kt
 package com.sta.staenturno.data.remote
 
-import retrofit2.http.Body
+import com.sta.staenturno.data.local.remote.ChangePassResponse
+import com.sta.staenturno.data.local.remote.LoginResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.Header

@@ -2,7 +2,7 @@ package com.sta.staenturno.domain.repository
 
 import com.sta.staenturno.data.local.TokenSecureStorage
 import com.sta.staenturno.data.remote.AuthApiService
-import com.sta.staenturno.data.remote.LoginResponse
+import com.sta.staenturno.data.local.remote.LoginResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

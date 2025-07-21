@@ -1,7 +1,7 @@
 // domain/repository/AuthRepository.kt
 package com.sta.staenturno.domain.repository
 
-import com.sta.staenturno.data.remote.LoginResponse
+import com.sta.staenturno.data.local.remote.LoginResponse
 
 interface AuthRepository {
     suspend fun login(usuario: String, pass: String, deviceId: String): Result<LoginResponse>

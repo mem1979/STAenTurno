@@ -1,4 +1,4 @@
-package com.sta.staenturno.data.remote
+package com.sta.staenturno.data.local.remote
 
 data class LoginResponse(
     val token: String,
