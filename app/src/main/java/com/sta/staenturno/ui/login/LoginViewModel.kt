@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sta.staenturno.data.local.DeviceIdProvider
 import com.sta.staenturno.domain.repository.AuthRepository
+import com.sta.staenturno.util.toUserMessage
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -40,12 +41,12 @@ class LoginViewModel(
     fun onLoginClick() {
         val state = _uiState.value
         if (state.usuario.isBlank() || state.password.isBlank()) {
-            showError("Campos vacíos")
+            showError("Completa usuario y contraseña.")
             return
         }
 
         viewModelScope.launch {
-            _uiState.value = state.copy(loading = true)
+            _uiState.value = state.copy(loading = true, error = null)
 
             val result = repo.login(
                 usuario  = state.usuario,
@@ -65,7 +66,7 @@ class LoginViewModel(
             } else {
                 state.copy(
                     loading = false,
-                    error   = result.exceptionOrNull()?.localizedMessage ?: "Error desconocido"
+                    error   = result.exceptionOrNull()?.toUserMessage() ?: "Error desconocido"
                 )
             }
         }

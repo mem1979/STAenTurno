@@ -13,6 +13,7 @@ import com.sta.staenturno.data.local.TokenSecureStorage
 import com.sta.staenturno.data.remote.AuthApiService
 import com.sta.staenturno.data.remote.RetrofitModule
 import com.sta.staenturno.domain.repository.AuthRepositoryImpl
+import com.sta.staenturno.util.toUserMessage
 import kotlinx.coroutines.launch
 
 @Composable
@@ -92,8 +93,8 @@ fun ChangePasswordScreen(nav: NavController, token: String) {
                                         launchSingleTop = true
                                     }
                                 } else {
-                                    error = r.exceptionOrNull()?.localizedMessage
-                                        ?: "Error al actualizar"
+                                         error = r.exceptionOrNull()?.toUserMessage()
+                                         ?: "Error al actualizar contraseña."
                                 }
                             }
                         }
